@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.narabel.productservicegrpc.grpc";
+
+service productService {
+  rpc getById(id) returns (ProductObject){}
+  rpc gelAll(Empty) returns (ProductsList){}
+}
+
+message id {
+  string id = 1;
+}
+
+message ProductObject {
+  string id = 1;
+  string name = 2;
+  string type = 3;
+  string description = 4;
+  bool enabled = 5;
+}
+
+message Empty {
+
+}
+
+message ProductsList {
+  repeated ProductObject product = 1;
+}
